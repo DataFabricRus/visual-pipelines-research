@@ -4,7 +4,8 @@
 <p>The flow invokes FIAS service to get a link to the newest archive with xml delta and download this archive to the local folder.</p>
 <h4>Usage</h4>
 <p>To use this flow it is necessary to provide the following directory structure on the level of "bin" folder of NiFi (of course, you may edit processors as you want):</p>
-1. Create "soap" directory where request.xml to FIAS service must be placed. The service description can be found at http://fias.nalog.ru/WebServices/Public/DownloadService.asmx?op=GetLastDownloadFileInfo. The following request is used:
+<ol>
+<li>Create "soap" directory where request.xml to FIAS service must be placed. The service description can be found at http://fias.nalog.ru/WebServices/Public/DownloadService.asmx?op=GetLastDownloadFileInfo. The following request is used:</li>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -14,3 +15,4 @@
   </soap:Body>
 </soap:Envelope>
 ```
+</ol>
