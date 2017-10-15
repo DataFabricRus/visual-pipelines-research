@@ -1,7 +1,7 @@
 <h3>FIASXMLDeltaLoader</h3>
 <p>FIASXMLDeltaLoader.xml represents NiFi flow for downloading delta of FIAS database in xml format packed with rar acrhicve. The archive itself can be found at https://fias.nalog.ru/Updates.aspx</p>
 <h4>Description</h4>
-<p>The flow invokes FIAS service to get a link to the newest archive with xml delta and download this archive to the local folder.</p>
+<p>The flow invokes FIAS service to get a link to the newest archive with xml delta and download this archive to the local folder. The flow is set to download archive once in ten days without (!) checking if the base has been advanced or not.</p>
 <h4>Usage</h4>
 <p>To use this flow it is necessary to provide the following directory structure on the level of "bin" folder of NiFi (of course, you may edit processors as you want):</p>
 <ol>
@@ -15,4 +15,5 @@
   </soap:Body>
 </soap:Envelope>
 ```
+<li>Create "in" direcory where archive will be stored</li>
 </ol>
