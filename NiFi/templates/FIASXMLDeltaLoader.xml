@@ -1,15 +1,352 @@
 <?xml version="1.0" ?>
 <template encoding-version="1.1">
-  <description>Load fias_xml_delta.rar from FIAS</description>
-  <groupId>01c9da6b-015f-1000-909f-750f2dd4cf71</groupId>
+  <description>1. Requests the newest XML delta of FIAS base
+2. Checks if it is a new file
+3. If it is a new file then loads it to local file system</description>
+  <groupId>109bf54e-015f-1000-c876-c237e90c6c5a</groupId>
   <name>FIASXMLDeltaLoader</name>
   <snippet>
+    <connections>
+      <id>a97ba55f-d046-3831-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>288b3b06-4fa4-3ea8-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>02bbcdbb-b959-3403-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>ca7f696e-7183-332b-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>912f0afb-3085-3fa4-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>matched</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>6f58dc6f-f6f6-3b5e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>f94bdb26-3e29-3546-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>a8a06071-8096-3a81-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>Response</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>159cea7a-3502-3b2c-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>02acd549-67a0-3106-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>6f58dc6f-f6f6-3b5e-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>Response</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>288b3b06-4fa4-3ea8-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>2b7f9cda-2bd1-3e76-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>7cf7ba39-a732-3573-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>a8a06071-8096-3a81-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>43cd272d-a892-3466-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>159cea7a-3502-3b2c-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>non-duplicate</selectedRelationships>
+      <source>
+        <groupId>4423b9e6-3a31-37a2-0000-000000000000</groupId>
+        <id>912f0afb-3085-3fa4-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <controllerServices>
+      <id>36e6049c-8d34-38cb-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <bundle>
+        <artifact>nifi-distributed-cache-services-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <comments></comments>
+      <descriptors>
+        <entry>
+          <key>Server Hostname</key>
+          <value>
+            <name>Server Hostname</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Server Port</key>
+          <value>
+            <name>Server Port</name>
+          </value>
+        </entry>
+        <entry>
+          <key>SSL Context Service</key>
+          <value>
+            <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+            <name>SSL Context Service</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Communications Timeout</key>
+          <value>
+            <name>Communications Timeout</name>
+          </value>
+        </entry>
+      </descriptors>
+      <name>DistributedMapCacheClientService</name>
+      <persistsState>false</persistsState>
+      <properties>
+        <entry>
+          <key>Server Hostname</key>
+          <value>localhost</value>
+        </entry>
+        <entry>
+          <key>Server Port</key>
+          <value>4557</value>
+        </entry>
+        <entry>
+          <key>SSL Context Service</key>
+        </entry>
+        <entry>
+          <key>Communications Timeout</key>
+          <value>30 secs</value>
+        </entry>
+      </properties>
+      <state>ENABLED</state>
+      <type>org.apache.nifi.distributed.cache.client.DistributedMapCacheClientService</type>
+    </controllerServices>
+    <controllerServices>
+      <id>7a736ba9-75f3-3804-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <bundle>
+        <artifact>nifi-gcp-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <comments></comments>
+      <descriptors>
+        <entry>
+          <key>application-default-credentials</key>
+          <value>
+            <name>application-default-credentials</name>
+          </value>
+        </entry>
+        <entry>
+          <key>compute-engine-credentials</key>
+          <value>
+            <name>compute-engine-credentials</name>
+          </value>
+        </entry>
+        <entry>
+          <key>service-account-json-file</key>
+          <value>
+            <name>service-account-json-file</name>
+          </value>
+        </entry>
+        <entry>
+          <key>service-account-json</key>
+          <value>
+            <name>service-account-json</name>
+          </value>
+        </entry>
+      </descriptors>
+      <name>GCPCredentialsControllerService</name>
+      <persistsState>false</persistsState>
+      <properties>
+        <entry>
+          <key>application-default-credentials</key>
+          <value>false</value>
+        </entry>
+        <entry>
+          <key>compute-engine-credentials</key>
+          <value>true</value>
+        </entry>
+        <entry>
+          <key>service-account-json-file</key>
+        </entry>
+        <entry>
+          <key>service-account-json</key>
+        </entry>
+      </properties>
+      <state>ENABLED</state>
+      <type>org.apache.nifi.processors.gcp.credentials.service.GCPCredentialsControllerService</type>
+    </controllerServices>
     <processors>
-      <id>88851eed-b547-3046-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
+      <id>912f0afb-3085-3fa4-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
       <position>
-        <x>378.0</x>
-        <y>168.0</y>
+        <x>359.6912701743863</x>
+        <y>537.0860199312659</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Cache Entry Identifier</key>
+            <value>
+              <name>Cache Entry Identifier</name>
+            </value>
+          </entry>
+          <entry>
+            <key>FlowFile Description</key>
+            <value>
+              <name>FlowFile Description</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Age Off Duration</key>
+            <value>
+              <name>Age Off Duration</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Distributed Cache Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
+              <name>Distributed Cache Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Cache The Entry Identifier</key>
+            <value>
+              <name>Cache The Entry Identifier</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Cache Entry Identifier</key>
+            <value>${FiasDeltaXmlUrl}</value>
+          </entry>
+          <entry>
+            <key>FlowFile Description</key>
+            <value>${FiasDeltaXmlUrl}</value>
+          </entry>
+          <entry>
+            <key>Age Off Duration</key>
+          </entry>
+          <entry>
+            <key>Distributed Cache Service</key>
+            <value>36e6049c-8d34-38cb-0000-000000000000</value>
+          </entry>
+          <entry>
+            <key>Cache The Entry Identifier</key>
+            <value>true</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>DetectDuplicate</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>duplicate</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>non-duplicate</name>
+      </relationships>
+      <state>RUNNING</state>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.DetectDuplicate</type>
+    </processors>
+    <processors>
+      <id>a8a06071-8096-3a81-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <position>
+        <x>696.2109985351562</x>
+        <y>170.86294824030927</y>
       </position>
       <bundle>
         <artifact>nifi-update-attribute-nar</artifact>
@@ -80,11 +417,168 @@
       <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
     </processors>
     <processors>
-      <id>e7f389d1-2720-3af7-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
+      <id>d5cb6e36-80f9-3129-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
       <position>
-        <x>0.0</x>
-        <y>342.0</y>
+        <x>308.79723393579116</x>
+        <y>884.4130902395183</y>
+      </position>
+      <bundle>
+        <artifact>nifi-gcp-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>GCP Credentials Provider Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.processors.gcp.credentials.service.GCPCredentialsService</identifiesControllerService>
+              <name>GCP Credentials Provider Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcp-project-id</key>
+            <value>
+              <name>gcp-project-id</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcp-retry-count</key>
+            <value>
+              <name>gcp-retry-count</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-bucket</key>
+            <value>
+              <name>gcs-bucket</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-key</key>
+            <value>
+              <name>gcs-key</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-content-type</key>
+            <value>
+              <name>gcs-content-type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-object-md5</key>
+            <value>
+              <name>gcs-object-md5</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-object-crc32c</key>
+            <value>
+              <name>gcs-object-crc32c</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-object-acl</key>
+            <value>
+              <name>gcs-object-acl</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-server-side-encryption-key</key>
+            <value>
+              <name>gcs-server-side-encryption-key</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-overwrite-object</key>
+            <value>
+              <name>gcs-overwrite-object</name>
+            </value>
+          </entry>
+          <entry>
+            <key>gcs-content-disposition-type</key>
+            <value>
+              <name>gcs-content-disposition-type</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>GCP Credentials Provider Service</key>
+            <value>7a736ba9-75f3-3804-0000-000000000000</value>
+          </entry>
+          <entry>
+            <key>gcp-project-id</key>
+            <value>core-datafabric</value>
+          </entry>
+          <entry>
+            <key>gcp-retry-count</key>
+            <value>6</value>
+          </entry>
+          <entry>
+            <key>gcs-bucket</key>
+            <value>df-geo</value>
+          </entry>
+          <entry>
+            <key>gcs-key</key>
+            <value>fias/${filename}</value>
+          </entry>
+          <entry>
+            <key>gcs-content-type</key>
+            <value>${mime.type}</value>
+          </entry>
+          <entry>
+            <key>gcs-object-md5</key>
+          </entry>
+          <entry>
+            <key>gcs-object-crc32c</key>
+          </entry>
+          <entry>
+            <key>gcs-object-acl</key>
+          </entry>
+          <entry>
+            <key>gcs-server-side-encryption-key</key>
+          </entry>
+          <entry>
+            <key>gcs-overwrite-object</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>gcs-content-disposition-type</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutGCSObject</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <state>STOPPED</state>
+      <style></style>
+      <type>org.apache.nifi.processors.gcp.storage.PutGCSObject</type>
+    </processors>
+    <processors>
+      <id>02bbcdbb-b959-3403-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <position>
+        <x>6.00006103515625</x>
+        <y>7.200106443434279</y>
       </position>
       <bundle>
         <artifact>nifi-standard-nar</artifact>
@@ -97,27 +591,75 @@
         <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
         <descriptors>
           <entry>
-            <key>Destination</key>
+            <key>Input Directory</key>
             <value>
-              <name>Destination</name>
+              <name>Input Directory</name>
             </value>
           </entry>
           <entry>
-            <key>Return Type</key>
+            <key>File Filter</key>
             <value>
-              <name>Return Type</name>
+              <name>File Filter</name>
             </value>
           </entry>
           <entry>
-            <key>Validate DTD</key>
+            <key>Path Filter</key>
             <value>
-              <name>Validate DTD</name>
+              <name>Path Filter</name>
             </value>
           </entry>
           <entry>
-            <key>FiasDeltaXmlUrl</key>
+            <key>Batch Size</key>
             <value>
-              <name>FiasDeltaXmlUrl</name>
+              <name>Batch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Keep Source File</key>
+            <value>
+              <name>Keep Source File</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Recurse Subdirectories</key>
+            <value>
+              <name>Recurse Subdirectories</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Polling Interval</key>
+            <value>
+              <name>Polling Interval</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Ignore Hidden Files</key>
+            <value>
+              <name>Ignore Hidden Files</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Minimum File Age</key>
+            <value>
+              <name>Minimum File Age</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Maximum File Age</key>
+            <value>
+              <name>Maximum File Age</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Minimum File Size</key>
+            <value>
+              <name>Minimum File Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Maximum File Size</key>
+            <value>
+              <name>Maximum File Size</name>
             </value>
           </entry>
         </descriptors>
@@ -126,20 +668,317 @@
         <penaltyDuration>30 sec</penaltyDuration>
         <properties>
           <entry>
-            <key>Destination</key>
-            <value>flowfile-attribute</value>
+            <key>Input Directory</key>
+            <value>./soap</value>
           </entry>
           <entry>
-            <key>Return Type</key>
-            <value>string</value>
+            <key>File Filter</key>
+            <value>[^\.].*</value>
           </entry>
           <entry>
-            <key>Validate DTD</key>
+            <key>Path Filter</key>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>10</value>
+          </entry>
+          <entry>
+            <key>Keep Source File</key>
             <value>true</value>
           </entry>
           <entry>
-            <key>FiasDeltaXmlUrl</key>
-            <value>//*[local-name()='FiasDeltaXmlUrl']</value>
+            <key>Recurse Subdirectories</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Polling Interval</key>
+            <value>0 sec</value>
+          </entry>
+          <entry>
+            <key>Ignore Hidden Files</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Minimum File Age</key>
+            <value>0 sec</value>
+          </entry>
+          <entry>
+            <key>Maximum File Age</key>
+          </entry>
+          <entry>
+            <key>Minimum File Size</key>
+            <value>0 B</value>
+          </entry>
+          <entry>
+            <key>Maximum File Size</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>864000 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>GetFile</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <state>RUNNING</state>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.GetFile</type>
+    </processors>
+    <processors>
+      <id>159cea7a-3502-3b2c-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <position>
+        <x>697.6873168945312</x>
+        <y>346.1373928203874</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>HTTP Method</key>
+            <value>
+              <name>HTTP Method</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote URL</key>
+            <value>
+              <name>Remote URL</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>
+              <name>Connection Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Read Timeout</key>
+            <value>
+              <name>Read Timeout</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Include Date Header</key>
+            <value>
+              <name>Include Date Header</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Follow Redirects</key>
+            <value>
+              <name>Follow Redirects</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Attributes to Send</key>
+            <value>
+              <name>Attributes to Send</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Basic Authentication Username</key>
+            <value>
+              <name>Basic Authentication Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Basic Authentication Password</key>
+            <value>
+              <name>Basic Authentication Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+            <value>
+              <name>Proxy Host</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+            <value>
+              <name>Proxy Port</name>
+            </value>
+          </entry>
+          <entry>
+            <key>invokehttp-proxy-user</key>
+            <value>
+              <name>invokehttp-proxy-user</name>
+            </value>
+          </entry>
+          <entry>
+            <key>invokehttp-proxy-password</key>
+            <value>
+              <name>invokehttp-proxy-password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Put Response Body In Attribute</key>
+            <value>
+              <name>Put Response Body In Attribute</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Max Length To Put In Attribute</key>
+            <value>
+              <name>Max Length To Put In Attribute</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Digest Authentication</key>
+            <value>
+              <name>Digest Authentication</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Always Output Response</key>
+            <value>
+              <name>Always Output Response</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Trusted Hostname</key>
+            <value>
+              <name>Trusted Hostname</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Add Response Headers to Request</key>
+            <value>
+              <name>Add Response Headers to Request</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Content-Type</key>
+            <value>
+              <name>Content-Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>send-message-body</key>
+            <value>
+              <name>send-message-body</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Use Chunked Encoding</key>
+            <value>
+              <name>Use Chunked Encoding</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Penalize on "No Retry"</key>
+            <value>
+              <name>Penalize on "No Retry"</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>HTTP Method</key>
+            <value>GET</value>
+          </entry>
+          <entry>
+            <key>Remote URL</key>
+            <value>${FiasDeltaXmlUrl}</value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Connection Timeout</key>
+            <value>5 secs</value>
+          </entry>
+          <entry>
+            <key>Read Timeout</key>
+            <value>15 secs</value>
+          </entry>
+          <entry>
+            <key>Include Date Header</key>
+            <value>True</value>
+          </entry>
+          <entry>
+            <key>Follow Redirects</key>
+            <value>True</value>
+          </entry>
+          <entry>
+            <key>Attributes to Send</key>
+          </entry>
+          <entry>
+            <key>Basic Authentication Username</key>
+          </entry>
+          <entry>
+            <key>Basic Authentication Password</key>
+          </entry>
+          <entry>
+            <key>Proxy Host</key>
+          </entry>
+          <entry>
+            <key>Proxy Port</key>
+          </entry>
+          <entry>
+            <key>invokehttp-proxy-user</key>
+          </entry>
+          <entry>
+            <key>invokehttp-proxy-password</key>
+          </entry>
+          <entry>
+            <key>Put Response Body In Attribute</key>
+          </entry>
+          <entry>
+            <key>Max Length To Put In Attribute</key>
+            <value>256</value>
+          </entry>
+          <entry>
+            <key>Digest Authentication</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Always Output Response</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Trusted Hostname</key>
+          </entry>
+          <entry>
+            <key>Add Response Headers to Request</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Content-Type</key>
+            <value>${mime.type}</value>
+          </entry>
+          <entry>
+            <key>send-message-body</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Use Chunked Encoding</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Penalize on "No Retry"</key>
+            <value>false</value>
           </entry>
         </properties>
         <runDurationMillis>0</runDurationMillis>
@@ -147,29 +986,37 @@
         <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
         <yieldDuration>1 sec</yieldDuration>
       </config>
-      <name>EvaluateXPath</name>
+      <name>InvokeHTTP</name>
       <relationships>
         <autoTerminate>true</autoTerminate>
-        <name>failure</name>
+        <name>Failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>No Retry</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>Original</name>
       </relationships>
       <relationships>
         <autoTerminate>false</autoTerminate>
-        <name>matched</name>
+        <name>Response</name>
       </relationships>
       <relationships>
         <autoTerminate>true</autoTerminate>
-        <name>unmatched</name>
+        <name>Retry</name>
       </relationships>
       <state>RUNNING</state>
       <style></style>
-      <type>org.apache.nifi.processors.standard.EvaluateXPath</type>
+      <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
     </processors>
     <processors>
-      <id>27298639-f634-3057-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
+      <id>288b3b06-4fa4-3ea8-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
       <position>
-        <x>3.0</x>
-        <y>167.0</y>
+        <x>3.00006103515625</x>
+        <y>174.20010644343427</y>
       </position>
       <bundle>
         <artifact>nifi-standard-nar</artifact>
@@ -459,11 +1306,96 @@
       <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
     </processors>
     <processors>
-      <id>3c507a9d-a370-3a02-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
+      <id>6f58dc6f-f6f6-3b5e-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
       <position>
-        <x>378.0</x>
-        <y>2.0</y>
+        <x>0.0</x>
+        <y>344.20010644343427</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.5.0-SNAPSHOT</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Destination</key>
+            <value>
+              <name>Destination</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Return Type</key>
+            <value>
+              <name>Return Type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Validate DTD</key>
+            <value>
+              <name>Validate DTD</name>
+            </value>
+          </entry>
+          <entry>
+            <key>FiasDeltaXmlUrl</key>
+            <value>
+              <name>FiasDeltaXmlUrl</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Destination</key>
+            <value>flowfile-attribute</value>
+          </entry>
+          <entry>
+            <key>Return Type</key>
+            <value>auto-detect</value>
+          </entry>
+          <entry>
+            <key>Validate DTD</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>FiasDeltaXmlUrl</key>
+            <value>//*[local-name()="FiasDeltaXmlUrl"]</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>EvaluateXPath</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>matched</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>unmatched</name>
+      </relationships>
+      <state>RUNNING</state>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.EvaluateXPath</type>
+    </processors>
+    <processors>
+      <id>7cf7ba39-a732-3573-0000-000000000000</id>
+      <parentGroupId>4423b9e6-3a31-37a2-0000-000000000000</parentGroupId>
+      <position>
+        <x>697.7718746382745</x>
+        <y>0.0</y>
       </position>
       <bundle>
         <artifact>nifi-standard-nar</artifact>
@@ -534,7 +1466,7 @@
           </entry>
           <entry>
             <key>Conflict Resolution Strategy</key>
-            <value>fail</value>
+            <value>replace</value>
           </entry>
           <entry>
             <key>Create Missing Directories</key>
@@ -574,444 +1506,6 @@
       <style></style>
       <type>org.apache.nifi.processors.standard.PutFile</type>
     </processors>
-    <processors>
-      <id>49c0b7f4-902f-3d3b-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
-      <position>
-        <x>380.0</x>
-        <y>348.0</y>
-      </position>
-      <bundle>
-        <artifact>nifi-standard-nar</artifact>
-        <group>org.apache.nifi</group>
-        <version>1.5.0-SNAPSHOT</version>
-      </bundle>
-      <config>
-        <bulletinLevel>WARN</bulletinLevel>
-        <comments></comments>
-        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-        <descriptors>
-          <entry>
-            <key>HTTP Method</key>
-            <value>
-              <name>HTTP Method</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Remote URL</key>
-            <value>
-              <name>Remote URL</name>
-            </value>
-          </entry>
-          <entry>
-            <key>SSL Context Service</key>
-            <value>
-              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
-              <name>SSL Context Service</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Connection Timeout</key>
-            <value>
-              <name>Connection Timeout</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Read Timeout</key>
-            <value>
-              <name>Read Timeout</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Include Date Header</key>
-            <value>
-              <name>Include Date Header</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Follow Redirects</key>
-            <value>
-              <name>Follow Redirects</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Attributes to Send</key>
-            <value>
-              <name>Attributes to Send</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Basic Authentication Username</key>
-            <value>
-              <name>Basic Authentication Username</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Basic Authentication Password</key>
-            <value>
-              <name>Basic Authentication Password</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Proxy Host</key>
-            <value>
-              <name>Proxy Host</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Proxy Port</key>
-            <value>
-              <name>Proxy Port</name>
-            </value>
-          </entry>
-          <entry>
-            <key>invokehttp-proxy-user</key>
-            <value>
-              <name>invokehttp-proxy-user</name>
-            </value>
-          </entry>
-          <entry>
-            <key>invokehttp-proxy-password</key>
-            <value>
-              <name>invokehttp-proxy-password</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Put Response Body In Attribute</key>
-            <value>
-              <name>Put Response Body In Attribute</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Max Length To Put In Attribute</key>
-            <value>
-              <name>Max Length To Put In Attribute</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Digest Authentication</key>
-            <value>
-              <name>Digest Authentication</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Always Output Response</key>
-            <value>
-              <name>Always Output Response</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Trusted Hostname</key>
-            <value>
-              <name>Trusted Hostname</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Add Response Headers to Request</key>
-            <value>
-              <name>Add Response Headers to Request</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Content-Type</key>
-            <value>
-              <name>Content-Type</name>
-            </value>
-          </entry>
-          <entry>
-            <key>send-message-body</key>
-            <value>
-              <name>send-message-body</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Use Chunked Encoding</key>
-            <value>
-              <name>Use Chunked Encoding</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Penalize on "No Retry"</key>
-            <value>
-              <name>Penalize on "No Retry"</name>
-            </value>
-          </entry>
-        </descriptors>
-        <executionNode>ALL</executionNode>
-        <lossTolerant>false</lossTolerant>
-        <penaltyDuration>30 sec</penaltyDuration>
-        <properties>
-          <entry>
-            <key>HTTP Method</key>
-            <value>GET</value>
-          </entry>
-          <entry>
-            <key>Remote URL</key>
-            <value>${FiasDeltaXmlUrl}</value>
-          </entry>
-          <entry>
-            <key>SSL Context Service</key>
-          </entry>
-          <entry>
-            <key>Connection Timeout</key>
-            <value>5 secs</value>
-          </entry>
-          <entry>
-            <key>Read Timeout</key>
-            <value>15 secs</value>
-          </entry>
-          <entry>
-            <key>Include Date Header</key>
-            <value>True</value>
-          </entry>
-          <entry>
-            <key>Follow Redirects</key>
-            <value>True</value>
-          </entry>
-          <entry>
-            <key>Attributes to Send</key>
-          </entry>
-          <entry>
-            <key>Basic Authentication Username</key>
-          </entry>
-          <entry>
-            <key>Basic Authentication Password</key>
-          </entry>
-          <entry>
-            <key>Proxy Host</key>
-          </entry>
-          <entry>
-            <key>Proxy Port</key>
-          </entry>
-          <entry>
-            <key>invokehttp-proxy-user</key>
-          </entry>
-          <entry>
-            <key>invokehttp-proxy-password</key>
-          </entry>
-          <entry>
-            <key>Put Response Body In Attribute</key>
-          </entry>
-          <entry>
-            <key>Max Length To Put In Attribute</key>
-            <value>256</value>
-          </entry>
-          <entry>
-            <key>Digest Authentication</key>
-            <value>false</value>
-          </entry>
-          <entry>
-            <key>Always Output Response</key>
-            <value>false</value>
-          </entry>
-          <entry>
-            <key>Trusted Hostname</key>
-          </entry>
-          <entry>
-            <key>Add Response Headers to Request</key>
-            <value>false</value>
-          </entry>
-          <entry>
-            <key>Content-Type</key>
-            <value>${mime.type}</value>
-          </entry>
-          <entry>
-            <key>send-message-body</key>
-            <value>true</value>
-          </entry>
-          <entry>
-            <key>Use Chunked Encoding</key>
-            <value>false</value>
-          </entry>
-          <entry>
-            <key>Penalize on "No Retry"</key>
-            <value>false</value>
-          </entry>
-        </properties>
-        <runDurationMillis>0</runDurationMillis>
-        <schedulingPeriod>0 sec</schedulingPeriod>
-        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-        <yieldDuration>1 sec</yieldDuration>
-      </config>
-      <name>InvokeHTTP</name>
-      <relationships>
-        <autoTerminate>true</autoTerminate>
-        <name>Failure</name>
-      </relationships>
-      <relationships>
-        <autoTerminate>true</autoTerminate>
-        <name>No Retry</name>
-      </relationships>
-      <relationships>
-        <autoTerminate>true</autoTerminate>
-        <name>Original</name>
-      </relationships>
-      <relationships>
-        <autoTerminate>false</autoTerminate>
-        <name>Response</name>
-      </relationships>
-      <relationships>
-        <autoTerminate>true</autoTerminate>
-        <name>Retry</name>
-      </relationships>
-      <state>RUNNING</state>
-      <style></style>
-      <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
-    </processors>
-    <processors>
-      <id>6e7df834-5d34-3b82-0000-000000000000</id>
-      <parentGroupId>d5d47699-2985-32bc-0000-000000000000</parentGroupId>
-      <position>
-        <x>1.0</x>
-        <y>0.0</y>
-      </position>
-      <bundle>
-        <artifact>nifi-standard-nar</artifact>
-        <group>org.apache.nifi</group>
-        <version>1.5.0-SNAPSHOT</version>
-      </bundle>
-      <config>
-        <bulletinLevel>WARN</bulletinLevel>
-        <comments></comments>
-        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-        <descriptors>
-          <entry>
-            <key>Input Directory</key>
-            <value>
-              <name>Input Directory</name>
-            </value>
-          </entry>
-          <entry>
-            <key>File Filter</key>
-            <value>
-              <name>File Filter</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Path Filter</key>
-            <value>
-              <name>Path Filter</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Batch Size</key>
-            <value>
-              <name>Batch Size</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Keep Source File</key>
-            <value>
-              <name>Keep Source File</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Recurse Subdirectories</key>
-            <value>
-              <name>Recurse Subdirectories</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Polling Interval</key>
-            <value>
-              <name>Polling Interval</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Ignore Hidden Files</key>
-            <value>
-              <name>Ignore Hidden Files</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Minimum File Age</key>
-            <value>
-              <name>Minimum File Age</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Maximum File Age</key>
-            <value>
-              <name>Maximum File Age</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Minimum File Size</key>
-            <value>
-              <name>Minimum File Size</name>
-            </value>
-          </entry>
-          <entry>
-            <key>Maximum File Size</key>
-            <value>
-              <name>Maximum File Size</name>
-            </value>
-          </entry>
-        </descriptors>
-        <executionNode>ALL</executionNode>
-        <lossTolerant>false</lossTolerant>
-        <penaltyDuration>30 sec</penaltyDuration>
-        <properties>
-          <entry>
-            <key>Input Directory</key>
-            <value>./soap</value>
-          </entry>
-          <entry>
-            <key>File Filter</key>
-            <value>[^\.].*</value>
-          </entry>
-          <entry>
-            <key>Path Filter</key>
-          </entry>
-          <entry>
-            <key>Batch Size</key>
-            <value>10</value>
-          </entry>
-          <entry>
-            <key>Keep Source File</key>
-            <value>true</value>
-          </entry>
-          <entry>
-            <key>Recurse Subdirectories</key>
-            <value>true</value>
-          </entry>
-          <entry>
-            <key>Polling Interval</key>
-            <value>0 sec</value>
-          </entry>
-          <entry>
-            <key>Ignore Hidden Files</key>
-            <value>true</value>
-          </entry>
-          <entry>
-            <key>Minimum File Age</key>
-            <value>0 sec</value>
-          </entry>
-          <entry>
-            <key>Maximum File Age</key>
-          </entry>
-          <entry>
-            <key>Minimum File Size</key>
-            <value>0 B</value>
-          </entry>
-          <entry>
-            <key>Maximum File Size</key>
-          </entry>
-        </properties>
-        <runDurationMillis>0</runDurationMillis>
-        <schedulingPeriod>864000 sec</schedulingPeriod>
-        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-        <yieldDuration>1 sec</yieldDuration>
-      </config>
-      <name>GetFile</name>
-      <relationships>
-        <autoTerminate>false</autoTerminate>
-        <name>success</name>
-      </relationships>
-      <state>RUNNING</state>
-      <style></style>
-      <type>org.apache.nifi.processors.standard.GetFile</type>
-    </processors>
   </snippet>
-  <timestamp>10/09/2017 16:16:34 UTC</timestamp>
+  <timestamp>10/26/2017 13:12:27 UTC</timestamp>
 </template>
