@@ -39,7 +39,7 @@
   <li>Filenames are merged in groups (chunks). The result can be taken from <i>source-grouped-filename</i> out port. There will be   flowfiles with original filenames + the name of the group;</li>
   <li>The recived flowfiles are used to get files from the source with some "Fetch'er";</li>
   <li>Fetched files are sent back but on <i>source-grouped-file</i> in port;</li>
-  <li>As a result a list of files with new group names can be received from <i>destination-grouped-file</i> out port. The original filename of a file is change on the following <i>[group-name.[merge.index].[merge.count]]<i>;</li>
+  <li>As a result a list of files with new group names can be received from <i>destination-grouped-file</i> out port. The original filename of a file is change on the following <i>[group-name.[merge.index].[merge.count]]</i>;</li>
   <li>Received list of files is stored at destination with some "Put'er";</li>
   <li>To get a singal when a group files is written to the destination it is necessary to do the follofing. Firstly, to provide <i>destination-filename</i> in port with a list of filenames at the destination gotten wiht some "List'er". And secondly, to connect processor that is wainting for files to <i>group-signal</i> out port. The signal is a flowfile with some group name.</li>
 </ol>
