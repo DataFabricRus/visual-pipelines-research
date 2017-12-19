@@ -28,3 +28,19 @@
 <li>Checks that there is "in" folder where rar archive cand be foud;</li>
 <li>Create "out" folder where unpacked files will be stored.</li>
 </ol>
+
+<h3>GroupFilesOnCopy</h3>
+It is a group processor that encapsulate functionality to copy files from some source to some destination. While coping files are grouped in chunks (groups). When any group of files is written to the destination the group signal is arisen that can be used to work on that group of files.
+
+How to use:
+<ol>
+  <li>Filenames that read from the source with some "List'er" are sent on `source-origin-filename` in port;</li>
+  <li>Filenames are merged in groups (chunks). The result can be taken from `source-grouped-filename` out port. There will be   flowfiles with original filenames + the name of the group;</li>
+  <li>The recived flowfiles are used to get files from the source with some "Fetch'er";</li>
+  <li>Fetched files are sent back but on `source-grouped-file` in port;</li>
+  <li>As a result a list of files with new group names can be received from `destination-grouped-file` out port. The original filename of a file is change on the following `[group-name.[merge.index].[merge.count]]`;</li>
+  <li>Received list of files is stored at destination with some "Put'er";</li>
+  <li>To get a singal when a group files is written to the destination it is necessary to do the follofing. Firstly, to provide `destination-filename` in port with a list of filenames at the destination gotten wiht some "List'er". And secondly, to connect processor that is wainting for files to `group-signal` out port. The signal is a flowfile with some group name.</li>
+</ol>
+
+To main setting of the group processor is the size of the bin and the bin lifetime that are set for MergeProcessor inside the group.
